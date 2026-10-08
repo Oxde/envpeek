@@ -1,0 +1,18 @@
+{
+  "name": "envpeek",
+  "description": "envpeek: a .env editor pane for Claude Code",
+  "owner": {
+    "name": "oxde"
+  },
+  "plugins": [
+    {
+      "name": "envpeek",
+      "description": "Edit the .env file of the folder you are working in, from a pane inside Claude Code. /env opens it.",
+      "version": "0.1.0",
+      "source": "./",
+      "author": {
+        "name": "oxde"
+      }
+    }
+  ]
+}

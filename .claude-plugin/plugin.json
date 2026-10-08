@@ -1,0 +1,12 @@
+{
+  "name": "envpeek",
+  "version": "0.1.0",
+  "description": "Edit the .env file of the folder you are working in, from a pane inside Claude Code. /env opens it.",
+  "author": {
+    "name": "oxde",
+    "url": "https://github.com/Oxde"
+  },
+  "license": "MIT",
+  "keywords": ["env", "dotenv", "pane", "mod"],
+  "types": "./types/index.d.ts"
+}
