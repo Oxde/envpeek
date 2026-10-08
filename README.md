@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="assets/logo.png" alt="envpeek: edit your .env without leaving Claude Code" width="720">
+</p>
+
 # envpeek
 
 Tired of opening VS Code only to edit `.env` while coding? Edit your `.env` without leaving Claude Code. A pane that lists your keys, hides the values, and saves edits in place.
