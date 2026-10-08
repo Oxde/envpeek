@@ -43,18 +43,9 @@ You can confirm the list above without reading the code: `claude plugin validate
 
 envpeek needs a Claude Code build with mod support. It was built and tested on 2.1.288 (the desktop app's Code tab); 2.1.132 does not load it.
 
-From a checkout:
-
 ```bash
 git clone https://github.com/Oxde/envpeek.git
 claude --plugin-dir ./envpeek
-```
-
-Or as a plugin, inside a Claude Code session:
-
-```
-/plugin marketplace add Oxde/envpeek
-/plugin install envpeek
 ```
 
 ## Where it runs
