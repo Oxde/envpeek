@@ -7,6 +7,13 @@
     "url": "https://github.com/Oxde"
   },
   "license": "MIT",
-  "keywords": ["env", "dotenv", "pane", "mod"],
-  "types": "./types/index.d.ts"
+  "keywords": [
+    "env",
+    "dotenv",
+    "pane",
+    "mod"
+  ],
+  "types": "./types/index.d.ts",
+  "homepage": "https://github.com/Oxde/envpeek",
+  "repository": "https://github.com/Oxde/envpeek"
 }

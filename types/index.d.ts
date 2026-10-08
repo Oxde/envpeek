@@ -5,6 +5,8 @@
 export type View = {
   /** the file being edited, relative to the working directory */
   file: string
+  /** every .env file found in the working folder and its subfolders, as relative paths; paths only */
+  found: string[]
   /** the key open for editing, or null */
   selected: string | null
   /** values drawn in full instead of masked */
