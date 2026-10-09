@@ -24,6 +24,32 @@ envpeek is a mod for Claude Code. `/env` opens a pane on the `.env` file of the 
 - The file is read again before every save, so an edit made somewhere else in the meantime is kept.
 - A value is whatever follows `=`, as written. envpeek does not add or strip quotes.
 
+## What the mod does, hook by hook
+
+envpeek is one hooks module with four hooks. This is all of them.
+
+| Hook | When it runs | What it does |
+|---|---|---|
+| `session.start` | once, when a session starts | registers the `/env` command and reads one saved setting (is the button hidden) |
+| `command.run` for `/env` | when you type `/env` | opens the pane on the `.env` file you named, or hides or shows the button for `/env hide` and `/env show` |
+| `ui.render` for the row above the prompt | when that row is drawn | draws the `.env` button and the `hide` control; checks only whether the file exists |
+| `ui.render` for the pane | while the pane is open | reads the selected `.env` file and draws its keys, with values hidden; saves an edit when you press Enter |
+
+It adds one slash command (`/env`). It adds no tools, no agents, no MCP servers, and it does not hook tool calls, prompts or the model.
+
+## What the mod writes
+
+envpeek is an editor for `.env` files, so writing them is its purpose. It writes exactly two things:
+
+1. **The `.env` file you are editing**, and only when you press Enter on a value, add a key, or press Delete. The file is always one named `.env` or `.env.<something>` inside the working folder, such as `.env`, `.env.local` or `backend/.env`. Each save rewrites the one line you changed.
+2. **One setting in the mod's own store:** `bandHidden`, true or false, so the button stays hidden across sessions.
+
+It never writes a build file, a start-up file, a shell profile, a Claude Code settings or instructions file, or anything outside the working folder.
+
+## Why it reads the file instead of asking for values
+
+A plugin that needs a secret for itself should ask for it through a `user_config` option. envpeek needs no secret of its own. The values it shows are your project's, in a file you already keep, and editing that file in place is the whole feature, so there is nothing to move into plugin settings. It reads a `.env` file only while the pane is open, and it keeps, sends and logs none of what it reads.
+
 ## Security and privacy
 
 What the mod can reach, in full:
