@@ -18,7 +18,7 @@ const ENV_FILE = /^\.env(\.[A-Za-z0-9_-]+)*$/
 /**
  * The file a `/env <name>` may open, or null: a `.env` file (`.env`, `.env.local`) inside the
  * working folder, by a relative path with no `..`. Anything else is refused, so the pane can never
- * be pointed at a key file, a shell profile or a path outside the project.
+ * be pointed at any other kind of file or at a path outside the project.
  */
 export function envFile(asked: string): string | null {
   if (asked === '' || asked.startsWith('/') || asked.startsWith('~') || asked.includes('\\') || asked.includes('\0')) {
