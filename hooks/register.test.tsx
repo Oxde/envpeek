@@ -96,7 +96,7 @@ test('only .env files inside the folder can be opened', async ($, on) => {
   expect(envFile('.env.local')).toBe('.env.local')
   expect(envFile('apps/web/.env.production')).toBe('apps/web/.env.production')
 
-  for (const bad of ['/etc/passwd', '~/.ssh/id_rsa', '../.env', 'a/../../.env', './.env', 'notes.txt', '.envrc', '.env/', 'C:\\\\x\\\\.env', '.env.$(rm)', '']) {
+  for (const bad of ['/tmp/.env', '~/elsewhere/.env', '~/notes.txt', '../.env', 'a/../../.env', './.env', 'notes.txt', '.envrc', '.env/', 'C:\\\\x\\\\.env', '.env.$(rm)', '']) {
     expect(envFile(bad)).toBe(null)
   }
 
@@ -106,7 +106,7 @@ test('only .env files inside the folder can be opened', async ($, on) => {
 
     return { value: { isPlaced: true } }
   })
-  const answer = await $.command.run({ command: 'env', args: '~/.ssh/id_rsa', origin: { kind: 'composer' }, presentation: { isFullscreen: false, columns: 80 } })
+  const answer = await $.command.run({ command: 'env', args: '~/elsewhere/notes.txt', origin: { kind: 'composer' }, presentation: { isFullscreen: false, columns: 80 } })
   expect(JSON.stringify(answer)).toContain('only opens .env files')
   expect(opened.length).toBe(0)
 })

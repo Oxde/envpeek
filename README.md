@@ -56,7 +56,7 @@ What the mod can reach, in full:
 
 | It does | It never does |
 |---|---|
-| reads and writes `.env` files inside the working folder | open any other file: `/env ~/.ssh/id_rsa`, `/env ../x` and `/env notes.txt` are refused |
+| reads and writes `.env` files inside the working folder | open any other file: a path in your home folder, a path that climbs out with `..`, or a file not named `.env…` is refused |
 | lists the working folder and up to two folders below it to find `.env*` files (names only) | follow a symbolic link: a linked `.env` is shown as refused and left alone |
 | keeps one setting across sessions: whether the button is hidden | make a network request or start a process |
 | draws its pane, its button and one status line | write a value into the transcript, a toast, a log or its own state |
